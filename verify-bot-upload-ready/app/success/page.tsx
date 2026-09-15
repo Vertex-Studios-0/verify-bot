@@ -1,0 +1,1 @@
+export default function Success(){return <main><section className="card"><h1>Verified</h1><p>Your Discord account was successfully verified and the role was assigned.</p><a className="button" href="https://discord.gg/handshake">Return to Discord</a></section></main>}

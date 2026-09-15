@@ -1,0 +1,2 @@
+function req(n:string){const v=process.env[n];if(!v)throw new Error(`Missing ${n}`);return v}
+export const config={baseUrl:req("NEXT_PUBLIC_BASE_URL").replace(/\/$/,""),guild:req("DISCORD_GUILD_ID"),role:req("DISCORD_VERIFIED_ROLE_ID"),client:req("DISCORD_CLIENT_ID"),secret:req("DISCORD_CLIENT_SECRET"),bot:req("DISCORD_BOT_TOKEN")};export const redirectUri=()=>`${config.baseUrl}/api/auth/discord/callback`;
