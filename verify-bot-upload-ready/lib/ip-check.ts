@@ -1,3 +1,0 @@
-export type IpSecurity={vpn:boolean;proxy:boolean;tor:boolean;hosting:boolean};
-const b=(v:unknown)=>v===true||v===1||v==="true"||v==="1";
-export async function checkIp(ip:string):Promise<IpSecurity>{const u=process.env.IP_INTEL_API_URL,k=process.env.IP_INTEL_API_KEY;if(!u||!k)throw new Error("IP intelligence provider is not configured");const x=new URL(u);x.searchParams.set("ip",ip);const r=await fetch(x,{headers:{accept:"application/json",authorization:`Bearer ${k}`,"x-api-key":k},cache:"no-store"});if(!r.ok)throw new Error(`IP provider ${r.status}`);const d=await r.json() as Record<string,unknown>;return{vpn:b(d.vpn??d.is_vpn),proxy:b(d.proxy??d.is_proxy),tor:b(d.tor??d.is_tor),hosting:b(d.hosting??d.is_hosting??d.datacenter??d.is_datacenter)}}

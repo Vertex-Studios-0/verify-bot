@@ -1,2 +1,0 @@
-import Link from "next/link";
-export default function Home(){return <main><section className="card"><h1>Discord Verification</h1><p>Verify your Discord account to receive access to the server.</p><div className="warning">⚠️ YOU MUST TURN OFF YOUR VPN</div><p>VPNs, proxies, Tor exit nodes, and datacenter connections may be rejected.</p><Link className="button" href="/verify">Start Verification</Link></section></main>}

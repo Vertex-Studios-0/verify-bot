@@ -1,1 +1,0 @@
-type E={count:number;reset:number};const m=new Map<string,E>();export function rateLimit(k:string,limit=5,windowMs=60000){const n=Date.now(),e=m.get(k);if(!e||e.reset<=n){m.set(k,{count:1,reset:n+windowMs});return{ok:true}}if(e.count>=limit)return{ok:false,retryAfter:Math.ceil((e.reset-n)/1000)};e.count++;return{ok:true}}
